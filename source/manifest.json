@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Playlist Parser For Yandex Music",
+    "short_name": "Playlist Parser",
+    "description": "Parse all yours Yandex Music playlist to text.",
+    "version": "0.1",
+    "author": "Artem Zanin",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "tabs",
+        "https://music.yandex.ru/users/illuzor.com/playlists*"
+    ],
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://music.yandex.ru/users/illuzor.com/playlists*"
+        ],
+        "js": [
+            "action-parse.js"
+        ]
+    }],
+    "browser_action": {
+        "default_title": "Parse"
+    }
+}
